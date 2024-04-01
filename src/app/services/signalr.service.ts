@@ -4,6 +4,7 @@ import { HubConnectionBuilder } from '@microsoft/signalr';
 import { Job } from '../models/job.model';
 import { DomainService } from './domain.service';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +16,9 @@ export class SignalRService {
   constructor(private domainService: DomainService) {
     const schemaName = this.domainService.mapDomainToSchema();
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl(
-        `https://localhost:7100/api/jobstatushub?context=${schemaName}`,
-        {
-          withCredentials: false,
-        }
-      )
+      .withUrl(environment.apiUrl + `/jobstatushub?context=${schemaName}`, {
+        withCredentials: false,
+      })
       .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: (retryContext) => {
           // Customize the delay logic here if needed
