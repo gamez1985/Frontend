@@ -1,0 +1,24 @@
+# Exclude node_modules directory (dependencies)
+node_modules
+
+# Exclude build artifacts
+dist
+
+# Exclude any temporary files or logs
+.tmp
+logs
+
+# Exclude any local development environment files
+.env
+
+# Exclude Git related files and directories
+.git
+.gitignore
+
+# Exclude editor configuration files
+.idea
+.vscode
+
+# Exclude npm/yarn lock files
+package-lock.json
+yarn.lock
