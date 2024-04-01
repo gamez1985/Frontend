@@ -1,0 +1,13 @@
+/* src/app/components/job-form/job-form.component.css */
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  color: #333; /* Dark Grey */
+}
+
+button {
+  margin-top: 20px;
+}

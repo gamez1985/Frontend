@@ -1,0 +1,35 @@
+<div>
+  <h2>Job List</h2>
+  <button mat-raised-button color="primary" (click)="openCreateJobDialog()">Create Job</button>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Job Type Column -->
+    <ng-container matColumnDef="jobType">
+      <th mat-header-cell *matHeaderCellDef> Job Type </th>
+      <td mat-cell *matCellDef="let job"> {{ job.jobType }} </td>
+    </ng-container>
+
+    <!-- Created Date Column -->
+    <ng-container matColumnDef="createdDate">
+      <th mat-header-cell *matHeaderCellDef> Created Date </th>
+      <td mat-cell *matCellDef="let job"> {{ job.createdDate | date:'medium' }} </td>
+    </ng-container>
+
+    <!-- Job Status Column -->
+    <ng-container matColumnDef="jobStatus">
+      <th mat-header-cell *matHeaderCellDef> Job Status </th>
+      <td mat-cell *matCellDef="let job"> {{ job.jobStatus }} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let job">
+        <!-- <button mat-button (click)="editJob(job.jobId)">Edit</button> -->
+        <button mat-button (click)="deleteJob(job.jobId)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['jobType', 'createdDate', 'jobStatus', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['jobType', 'createdDate', 'jobStatus', 'actions']"></tr>
+  </table>
+</div>

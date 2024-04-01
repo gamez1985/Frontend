@@ -1,0 +1,16 @@
+<!-- job-form.component.html -->
+
+<form [formGroup]="jobForm" (ngSubmit)="saveJob()" class="form-container">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Job Type</mat-label>
+    <input matInput formControlName="jobType" placeholder="Enter job type">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Job Status</mat-label>
+    <input matInput formControlName="jobStatus" placeholder="Enter job status">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
